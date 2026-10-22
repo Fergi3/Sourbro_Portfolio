@@ -1,0 +1,49 @@
+@use 'variables' as *;
+
+//TOAST!!!!
+.bread-toast {
+  width: 260px;
+  max-width: calc(100vw - 32px);
+  color: $walnut;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+
+  .toast-body {
+    aspect-ratio: 1.08;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 40px 35px;
+    background: url('../images/BreadToast.png') center / contain no-repeat;
+  }
+
+  .bread-toast-close {
+    position: absolute;
+    top: 18%;
+    right: 17%;
+  }
+
+  &.show .toast-body {
+    animation: toast-pop .55s cubic-bezier(.2, .8, .3, 1);
+  }
+}
+
+@keyframes toast-pop {
+  0% {
+    transform: translateY(160px);
+  }
+
+  65% {
+    transform: translateY(-22px);
+  }
+
+  85% {
+    transform: translateY(6px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}

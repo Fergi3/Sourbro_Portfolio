@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sourbro | Start</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div id="app" v-cloak class="d-flex flex-column flex-grow-1">
+
+    <!-- NAVBAR -->
+    <app-navbar current-page="start"></app-navbar>
+
+    <main class="my-auto w-100 flex-shrink-0">
+
+        <!-- STARTER SELECTION AND MASCOT -->
+        <section class="starter-dashboard starter-page" id="starter">
+            <div class="container">
+
+                <div class="row g-4 align-items-center mb-4">
+                    <div class="col-12 col-md-8 col-lg-8">
+                        <header class="starter-page-heading">
+                            <h1>Your Starter</h1>
+                        </header>
+
+                        <div class="starter-page-selection">
+                            <label class="form-label" id="starterChoiceLabel">
+                                Choose a starter
+                            </label>
+
+                            <div class="starter-page-controls">
+                                <div class="dropdown">
+                                    <button class="btn starter-picker dropdown-toggle w-100"
+                                            type="button"
+                                            id="selectedStarter"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false"
+                                            aria-labelledby="starterChoiceLabel selectedStarter">
+                                        {{ selectedStarter ? selectedStarter.name : 'Choose a starter...' }}
+                                    </button>
+
+                                    <ul class="dropdown-menu w-100">
+                                        <li v-for="starter in starters" :key="starter.id">
+                                            <button class="dropdown-item"
+                                                    type="button"
+                                                    @click="selectStarter(starter.id)">
+                                                {{ starter.name }}
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li>
+                                            <add-starter-form
+                                                    :starters="starters"
+                                                    @add-starter="addStarter">
+                                            </add-starter-form>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-start starter-mascot">
+                        <button type="button"
+                                class="btn p-0 border-0 text-center"
+                                :disabled="!selectedStarter"
+                                aria-label="Change starter mascot"
+                                @click="$refs.starterEditor.openMascotPicker()">
+
+                            <img :src="'images/mascots/starters/' +
+                              (selectedStarter && selectedStarter.image
+                                  ? selectedStarter.image
+                                  : 'SmilingSourdoughStarter.png')"
+                                 class="img-fluid"
+                                 alt="">
+                        </button>
+                    </div>
+                </div>
+
+                <!-- SELECTED STARTER DETAILS -->
+                <div class="starter-page-details" v-if="selectedStarter">
+                    <div class="starter-page-title-row">
+                        <h2>{{ selectedStarter.name }}</h2>
+
+                        <span class="status-pill">
+                            {{ selectedStarter.status }}
+                        </span>
+
+                        <edit-starter-form
+                                ref="starterEditor"
+                                :selected-starter="selectedStarter"
+                                @save-starter="saveEditingStarter"
+                                @delete-starter="deleteSelectedStarter">
+                        </edit-starter-form>
+                    </div>
+
+                    <p class="starter-page-description">
+                        {{ selectedStarter.description }}
+                    </p>
+
+                    <dl class="starter-page-facts row g-4 mb-0 ">
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <dt class=" small mb-1">Last fed</dt>
+                            <dd class="mb-0">{{ selectedStarter.lastFed }}</dd>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-3 border-start">
+                            <dt class=" small mb-1">Next feeding</dt>
+                            <dd class="mb-0">
+                                {{ selectedStarter.nextFeedingTime }}
+                                <small class="d-block text-body-secondary mt-1">
+                                    {{ selectedStarter.nextFeedingCountdown }}
+                                </small>
+                            </dd>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-2 border-start">
+                            <dt class=" small mb-1">Feeding ratio</dt>
+                            <dd class="mb-0">{{ selectedStarter.feedingRatio }}</dd>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4 border-start">
+                            <dt class=" small mb-1">Flour</dt>
+                            <dd class="mb-0">{{ selectedStarter.flour }}</dd>
+                        </div>
+                    </dl>
+
+                    <div class="d-flex flex-wrap align-items-center gap-3 mt-4">
+                        <div>
+                            <feeding-form
+                                    :selected-starter="selectedStarter"
+                                    @save-feeding="saveFeeding">
+                            </feeding-form>
+                        </div>
+
+                        <button type="button"
+                                class="btn btn-link starter-page-reminder"
+                                data-bs-toggle="modal"
+                                data-bs-target="#feedingReminderModal">
+                            Set reminder
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FEEDING REMINDER: WIP -->
+    <div class="modal fade starter-action-modal"
+         id="feedingReminderModal"
+         tabindex="-1"
+         aria-labelledby="feedingReminderModalLabel"
+         aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title fs-4"
+                        id="feedingReminderModalLabel">
+                        Set a Feeding Reminder
+                    </h2>
+
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close">
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <p>
+                        Choose when you would like to be reminded about
+                        {{ selectedStarter ? selectedStarter.name : 'Your starter' }}’s next feeding.
+                    </p>
+
+                    <form>
+                        <div class="mb-3">
+                            <label for="reminderDate"
+                                   class="form-label">
+                                Feeding Date
+                            </label>
+
+                            <input type="date"
+                                   class="form-control"
+                                   id="reminderDate"
+                                   value="2026-09-11">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="reminderTime"
+                                   class="form-label">
+                                Feeding Time
+                            </label>
+
+                            <input type="time"
+                                   class="form-control"
+                                   id="reminderTime"
+                                   value="16:00">
+                        </div>
+
+                        <div>
+                            <label for="reminderNotice"
+                                   class="form-label">
+                                Remind Me
+                            </label>
+
+                            <select class="form-select"
+                                    id="reminderNotice">
+                                <option value="0">At feeding time</option>
+                                <option value="15" selected>15 minutes before</option>
+                                <option value="30">30 minutes before</option>
+                                <option value="60">1 hour before</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal">
+                        Cancel
+                    </button>
+
+                    <button type="button"
+                            class="btn btn-success"
+                            data-bs-dismiss="modal">
+                        Save Reminder
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-toast ref="toast"></app-toast>
+    <app-footer></app-footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

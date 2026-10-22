@@ -1,0 +1,95 @@
+@use 'variables' as *;
+
+// BUTTONS AND BADGES
+.btn-secondary {
+  --bs-btn-color: #{$walnut};
+  --bs-btn-bg: #{$fawn};
+  --bs-btn-border-color: #{$walnut};
+  --bs-btn-hover-color: #{$walnut};
+  --bs-btn-hover-bg: #{$warm-white};
+  --bs-btn-hover-border-color: #{$walnut};
+  --bs-btn-focus-shadow-rgb: 213, 186, 134;
+  --bs-btn-active-color: #{$walnut};
+  --bs-btn-active-bg: #{$parchment};
+  --bs-btn-active-border-color: #{$walnut};
+  --bs-btn-disabled-color: #{$walnut};
+  --bs-btn-disabled-bg: #{$fawn};
+  --bs-btn-disabled-border-color: #{$walnut};
+}
+
+.btn-success {
+  --bs-btn-color: #{$warm-white};
+  --bs-btn-bg: #{$fern};
+  --bs-btn-border-color: #{$fern};
+  --bs-btn-hover-color: #{$fern};
+  --bs-btn-hover-bg: #{$warm-white};
+  --bs-btn-hover-border-color: #{$fern};
+  --bs-btn-focus-shadow-rgb: 62, 122, 71;
+  --bs-btn-active-color: #{$warm-white};
+  --bs-btn-active-bg: #{$fern};
+  --bs-btn-active-border-color: #{$fern};
+  --bs-btn-disabled-color: #{$warm-white};
+  --bs-btn-disabled-bg: #{$fern};
+  --bs-btn-disabled-border-color: #{$fern};
+  min-height: 48px;
+  font-weight: 600;
+}
+
+.btn-outline-secondary {
+  --bs-btn-color: #{$walnut};
+  --bs-btn-border-color: #{$fawn};
+  --bs-btn-hover-bg: #{$parchment};
+  --bs-btn-hover-color: #{$walnut};
+  --bs-btn-hover-border-color: #{$walnut};
+}
+
+.quiet-action, .starter-edit-trigger, .starter-page-reminder {
+  min-height: 44px;
+  padding: 8px 12px;
+  color: $fern;
+  text-decoration: none;
+
+  &:hover {
+    background: rgba($fern, .08);
+    color: $fern;
+  }
+}
+
+.btn:focus-visible, summary:focus-visible {
+  outline: 2px solid $fern;
+  outline-offset: 3px;
+}
+
+.status-pill {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba($fern, .12);
+  color: $fern;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.loaf-progress-pill {
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+  text-align: center;
+}
+
+.loaf-progress-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: rgba($fern, .6);
+}
+
+.loaf-progress-label {
+  position: relative;
+  color: $walnut;
+  font-weight: 600;
+}
+
+.history-completed-badge {
+  background: rgba($fawn, .35);
+  color: $walnut;
+}

@@ -1,0 +1,159 @@
+@use 'variables' as *;
+
+// START PAGE
+.starter-page {
+  padding: 40px 0;
+}
+
+.starter-page-heading {
+  margin-bottom: 30px;
+
+  h1 {
+    margin: 0;
+    font-weight: 600;
+  }
+}
+
+.starter-page-selection {
+  margin-bottom: 32px;
+}
+
+.starter-page-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+
+  .dropdown {
+    flex: 0 1 540px;
+    min-width: 0;
+  }
+}
+
+.starter-picker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 48px;
+  padding: 12px 16px;
+  border: 1px solid rgba($walnut, .24);
+  background: $warm-white;
+  color: $charcoal;
+  text-align: left;
+
+  &:hover, &:focus {
+    border-color: $fern;
+    background: $warm-white;
+    color: $charcoal;
+  }
+}
+
+.starter-page, .recipe-selection {
+  .dropdown-menu {
+    border-color: rgba($walnut, .24);
+    background: $warm-white;
+  }
+
+  .dropdown-item {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    white-space: normal;
+    overflow-wrap: anywhere;
+
+    &:hover, &:focus {
+      background: $parchment;
+      color: $fern;
+    }
+  }
+}
+
+.starter-page-title-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+
+  h2 {
+    margin: 0;
+    overflow-wrap: anywhere;
+  }
+}
+
+.starter-page-description {
+  margin: 10px 0 28px;
+  color: rgba($charcoal, .75);
+  font-size: 17px;
+}
+
+.starter-page-facts {
+  > div {
+    min-width: 0;
+  }
+
+  dt {
+    margin-bottom: 6px;
+    color: $fern;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  dd {
+    margin: 0;
+    color: $walnut;
+    font-size: 18px;
+    overflow-wrap: anywhere;
+  }
+}
+
+.feed-starter-btn {
+  padding: 12px 20px;
+}
+
+.starter-mascot > button {
+  width: 180px;
+}
+
+@media (min-width: 768px) {
+  .starter-mascot {
+    position: relative;
+
+    > button {
+      position: absolute;
+      top: -70px;
+      left: 0;
+      width: 250px;
+      max-width: 100%;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      margin: 0 auto;
+      transform: translateX(-14.5px);
+    }
+  }
+}
+
+// RESPONSIVE STARTER LAYOUT
+@media (max-width: 991.98px) {
+  .starter-page-facts > .border-start:nth-child(3) {
+    border-left: 0 !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .starter-page-facts > .border-start {
+    border-left: 0 !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .starter-page {
+    padding: 28px 0;
+  }
+
+  .starter-page-controls .dropdown {
+    flex-basis: 100%;
+  }
+}

@@ -1,0 +1,462 @@
+@use 'variables' as *;
+
+// BAKE HEADING AND SECTION SELECTOR
+.bake-page-heading {
+  padding: 36px 0 28px;
+
+  h1 {
+    margin: 0 0 6px;
+    font-weight: 600;
+  }
+}
+
+.bake-view-toggle {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: $parchment;
+  border: 1px solid $fawn;
+  border-radius: 12px;
+
+  > button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    gap: 8px;
+    min-width: 0;
+    min-height: 48px;
+    padding: 10px 12px;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: $walnut;
+    font: inherit;
+    cursor: pointer;
+
+    &:hover {
+      background: rgba($fern, .06);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $fern;
+      outline-offset: 2px;
+    }
+
+    &.is-selected {
+      background: $fern;
+      color: $warm-white;
+      font-weight: 600;
+      box-shadow: 0 2px 5px rgba($walnut, .12);
+
+      .bake-view-count {
+        background: rgba($warm-white, .20);
+        color: $warm-white;
+      }
+    }
+  }
+}
+
+.bake-view-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: rgba($walnut, .08);
+  font-size: 13px;
+}
+
+.plan-builder {
+  padding-bottom: 28px;
+}
+
+.active-bakes, .bake-history {
+  padding-bottom: 40px;
+}
+
+.bake-history > .container > h2 {
+  margin-bottom: 22px;
+}
+
+// RECIPE AND INGREDIENT PREPARATION
+.recipe-selection {
+  min-width: 0;
+  border-radius: 8px;
+
+  &.bake-again-selected {
+    outline: 2px solid $fern;
+    outline-offset: 6px;
+  }
+}
+
+.recipe-edit-link {
+  margin-top: 4px;
+}
+
+.loaf-count-control {
+  width: 155px;
+
+  .form-control {
+    min-width: 45px;
+    padding: 10px 4px;
+  }
+
+  .btn {
+    padding: 8px 12px;
+  }
+}
+
+.planner-ingredients .section-heading {
+  margin-bottom: 4px;
+}
+
+.ingredient-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+
+  .form-check-input {
+    flex: 0 0 auto;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+  }
+
+  .form-check-input:checked + .ingredient-label > span:first-child {
+    color: $fern;
+    text-decoration: line-through;
+  }
+}
+
+.ingredient-label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 4px 8px;
+  min-width: 0;
+  width: 100%;
+  cursor: pointer;
+
+  span {
+    overflow-wrap: anywhere;
+  }
+
+  strong {
+    white-space: nowrap;
+    font-weight: 500;
+    color: $walnut;
+  }
+}
+
+.custom-amounts {
+  margin-bottom: 28px;
+  padding: 16px;
+  background: $parchment;
+  border-radius: 8px;
+}
+
+.planner-options {
+  h3 {
+    margin-bottom: 6px;
+  }
+}
+
+.optional-label {
+  font-size: 18px;
+}
+
+.add-in-category {
+  border-bottom: 1px solid $fawn;
+
+  summary {
+    padding: 12px 4px;
+    cursor: pointer;
+    color: $walnut;
+    font-weight: 500;
+  }
+
+  .form-check {
+    margin-bottom: 10px;
+  }
+}
+
+.add-in-category-content {
+  padding: 8px 8px 14px 22px;
+}
+
+.other-ingredient-fields {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+
+  .btn {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+}
+
+.add-in-helper {
+  margin: 12px 0 0;
+}
+
+.bake-summary {
+  padding: 26px;
+  border: 2px solid $fawn;
+  border-radius: 12px;
+  background: $parchment;
+  box-shadow: 0 4px 14px rgba($walnut, .06);
+
+  h3 {
+    font-size: 28px;
+    margin-bottom: 18px;
+  }
+}
+
+.planner-actions {
+  display: grid;
+  gap: 8px;
+  margin-top: 28px;
+
+  .btn {
+    width: 100%;
+  }
+}
+
+// ACTIVE LOAVES AND HISTORY ACCORDIONS
+.active-bakes, .bake-history {
+  .accordion-item {
+    border: 2px solid $fawn;
+    border-radius: 10px;
+    overflow: hidden;
+    background: $warm-white;
+    box-shadow: 0 3px 10px rgba($walnut, .05);
+  }
+
+  .accordion-button {
+    padding: 14px 16px;
+    background: $parchment;
+    color: $walnut;
+    box-shadow: none;
+
+    &:not(.collapsed) {
+      background: rgba($fern, .10);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $fern;
+      outline-offset: -2px;
+    }
+
+    &::after {
+      flex-shrink: 0;
+    }
+  }
+
+  .accordion-body {
+    padding: 24px;
+  }
+}
+
+.loaf-thumb {
+  width: 76px;
+  height: 76px;
+  margin-right: 16px;
+  border: 2px solid $fawn;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.loaf-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.loaf-title {
+  font-family: 'Lora', serif;
+  font-size: 20px;
+  overflow-wrap: anywhere;
+}
+
+.loaf-subtitle {
+  color: rgba($charcoal, .75);
+  font-size: 14px;
+}
+
+.loaf-step-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+@media (min-width: 768px) {
+  .loaf-step-summary {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 16px;
+  }
+  .loaf-next-preview {
+    border-left: 1px solid rgba($walnut, .25);
+    padding-left: 16px;
+  }
+}
+
+.loaf-ingredients {
+  padding-bottom: 20px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba($walnut, .16);
+
+  h4 {
+    font-size: 20px;
+  }
+
+  dl {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px 28px;
+    margin: 12px 0 0;
+  }
+
+  dl > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    min-width: 0;
+  }
+
+  dt {
+    font-weight: 400;
+    overflow-wrap: anywhere;
+  }
+
+  dd {
+    margin: 0;
+    white-space: nowrap;
+    color: $walnut;
+  }
+}
+
+.loaf-overview {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.loaf-current {
+  min-width: 0;
+
+  > strong {
+    display: block;
+    color: $walnut;
+    font-family: 'Lora', serif;
+    font-size: 24px;
+  }
+}
+
+.small-label {
+  color: $fern;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.loaf-instruction {
+  margin: 12px 0 8px;
+  line-height: 1.6;
+}
+
+.loaf-tip {
+  font-size: 14px;
+  color: rgba($charcoal, .75);
+  line-height: 1.5;
+}
+
+.loaf-status {
+  min-width: 0;
+}
+
+.loaf-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: 24px;
+  padding-top: 16px;
+}
+
+.loaf-actions > button:first-child:not(.complete-overview-btn) {
+  justify-self: start;
+}
+
+.complete-overview-btn {
+  grid-column: 2;
+  justify-self: end;
+  max-width: 100%;
+  white-space: normal;
+}
+
+.loaf-notes-btn {
+  color: $fern;
+}
+
+// TABLET AND COLLAPSED NAVIGATION
+@media (max-width: 991.98px) {
+  .bake-history dl.row > .border-start:nth-child(3) {
+    border-left: 0 !important;
+  }
+}
+
+// MOBILE
+@media (max-width: 767.98px) {
+  .bake-summary {
+    padding: 20px;
+  }
+  .planner-actions {
+    margin-top: 24px;
+  }
+  .active-bakes .accordion-body, .bake-history .accordion-body {
+    padding: 18px;
+  }
+  .bake-history dl.row > .border-start {
+    border-left: 0 !important;
+  }
+}
+
+// SMALL PHONES
+@media (max-width: 575.98px) {
+  .bake-page-heading {
+    padding: 28px 0 20px;
+  }
+  .bake-view-toggle .bake-view-count,
+  .bake-view-toggle > button.is-selected .bake-view-count {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: $fawn;
+    color: $walnut;
+    border: 2px solid $parchment;
+  }
+
+  .bake-view-toggle > button {
+    flex-direction: column;
+    padding: 8px 4px;
+    font-size: 14px;
+  }
+  .other-ingredient-fields, .loaf-ingredients dl {
+    grid-template-columns: 1fr;
+  }
+  .loaf-thumb {
+    width: 54px;
+    height: 54px;
+    margin-right: 12px;
+  }
+  .loaf-title {
+    font-size: 18px;
+  }
+}

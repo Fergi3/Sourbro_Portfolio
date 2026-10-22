@@ -1,0 +1,15 @@
+{
+  "name": "jakeandbake",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch scss/main.scss:css/main.css"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "dependencies": {
+    "bootstrap": "^5.3.8",
+    "sass": "^1.104.0"
+  }
+}

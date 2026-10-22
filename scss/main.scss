@@ -1,0 +1,15 @@
+@use 'base';
+@use 'buttons';
+@use 'forms';
+@use 'layout';
+@use 'starter';
+@use 'bake';
+@use 'toast';
+
+// REDUCED MOTION
+@media (prefers-reduced-motion: reduce) {
+  #app:not([v-cloak]) main,
+  .bread-toast.show .toast-body {
+    animation: none;
+  }
+}
