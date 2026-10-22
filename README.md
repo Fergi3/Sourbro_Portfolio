@@ -37,7 +37,14 @@
 ### Bread Personalization
 ![Bread Mascots](screenshots/MascotLoaves.png)
 
-**Video walkthrough:** _Link coming soon._
+## Video Demonstration
+
+Watch a walkthrough of Sourbro's starter management,
+recipe creation, baking workflows, and personalization features.
+
+[![Watch the Sourbro Demo](https://img.youtube.com/vi/Z-pzuXGTmo4/hqdefault.jpg)](https://youtu.be/Z-pzuXGTmo4)
+
+[Watch the Sourbro Demo on YouTube](https://youtu.be/Z-pzuXGTmo4)
 
 ## Technology stack
 
