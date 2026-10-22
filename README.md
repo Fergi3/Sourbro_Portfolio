@@ -17,11 +17,25 @@
 
 <!-- Replace these placeholders with repository-relative image paths and a video URL. -->
 
-**Starter dashboard:** _Screenshot coming soon._
+## Screenshots
 
-**Recipe planning and active bake:** _Screenshots coming soon._
+### Starter Dashboard
+![Starter Dashboard](screenshots/starter-dashboard.png)
 
-**Bake history:** _Screenshot coming soon._
+### Recipe Builder
+![Recipe Builder](screenshots/Build_Recipe.png)
+
+### Active Loaves
+![Active Loaves](screenshots/Active_Loaves.png)
+
+### Bake History
+![Bake History](screenshots/Bake_History.png)
+
+### Starter Personalization
+![Starter Mascots](screenshots/MascotStarters.png)
+
+### Bread Personalization
+![Bread Mascots](screenshots/MascotLoaves.png)
 
 **Video walkthrough:** _Link coming soon._
 
