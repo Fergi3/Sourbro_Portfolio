@@ -2,7 +2,7 @@
 
 **Sourbro** is a browser-based sourdough companion for managing starters, planning recipes, following baking progress, and keeping a history of completed loaves. The project combines practical baking workflows with playful, customizable starter and bread mascots.
 
-> **Portfolio project:** This repository presents the application and its technical design. Screenshots and a short walkthrough will be added here.
+> **Portfolio project:** This repository presents the application and its technical design.
 
 ## Features
 
@@ -13,9 +13,14 @@
 - **Personalization:** Choose illustrated starter and loaf mascots.
 - **Local persistence:** Save supported application data in the browser using `localStorage`.
 
-## Screenshots and demo
+## Video Demonstration
 
-<!-- Replace these placeholders with repository-relative image paths and a video URL. -->
+Watch a walkthrough of Sourbro's starter management,
+recipe creation, baking workflows, and personalization features.
+
+[![Watch the Sourbro Demo](https://img.youtube.com/vi/Z-pzuXGTmo4/hqdefault.jpg)](https://youtu.be/Z-pzuXGTmo4)
+
+[Watch the Sourbro Demo on YouTube](https://youtu.be/Z-pzuXGTmo4)
 
 ## Screenshots
 
@@ -36,15 +41,6 @@
 
 ### Bread Personalization
 ![Bread Mascots](screenshots/MascotLoaves.png)
-
-## Video Demonstration
-
-Watch a walkthrough of Sourbro's starter management,
-recipe creation, baking workflows, and personalization features.
-
-[![Watch the Sourbro Demo](https://img.youtube.com/vi/Z-pzuXGTmo4/hqdefault.jpg)](https://youtu.be/Z-pzuXGTmo4)
-
-[Watch the Sourbro Demo on YouTube](https://youtu.be/Z-pzuXGTmo4)
 
 ## Technology stack
 
@@ -168,6 +164,3 @@ Potential directions include automated tests, stronger persistence and data migr
 
 Developed by [Fergi3](https://github.com/Fergi3) as a web development portfolio project.
 
----
-
-*Screenshots, demo video, and live deployment link will be added after review.*
